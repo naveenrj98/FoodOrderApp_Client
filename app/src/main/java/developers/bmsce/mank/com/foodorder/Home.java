@@ -153,9 +153,17 @@ public class Home extends AppCompatActivity
 
         } else if (id == R.id.nav_cart) {
 
+             Intent intent = new Intent(Home.this,Cart.class);
+             startActivity(intent);
+
         } else if (id == R.id.nav_orders) {
 
+             Intent intent = new Intent(Home.this,OrderStatus.class);
+             startActivity(intent);
+
         } else if (id == R.id.nav_signout) {
+
+             finish();
 
         }
 

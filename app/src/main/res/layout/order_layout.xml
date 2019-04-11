@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="4dp"
+    android:layout_margin="8dp">
+
+
+    <LinearLayout
+        android:id="@+id/lin"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/order_id"
+                android:textStyle="bold"
+
+                android:textAllCaps="true"
+                android:text="#11111"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|start"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/order_status"
+                android:textStyle="italic"
+
+                android:textAllCaps="true"
+                android:text="Status"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|start"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/order_phone"
+                android:textStyle="italic"
+
+                android:textAllCaps="true"
+                android:text="123456789"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|start"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/order_address"
+                android:textStyle="italic"
+
+                android:textAllCaps="true"
+                android:text="Address"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|start"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
