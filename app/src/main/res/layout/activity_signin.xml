@@ -8,6 +8,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -18,23 +19,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/common_open_on_phone"
-            android:text="8073141525"/>
+            android:text="8073141525" />
 
         <EditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="123"
-            android:hint="Password"/>
+            android:hint="Password"
+            android:text="123" />
+
         <Button
-            android:layout_marginTop="20dp"
             android:id="@+id/btn_submit"
-            android:text="submit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="submit" />
 
 
     </LinearLayout>
+
+    <com.rey.material.widget.CheckBox
+
+        android:id="@+id/ckbremember"
+        style="@style/Material.Drawable.CheckBox"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+
+        android:text="Remember me"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </android.support.constraint.ConstraintLayout>

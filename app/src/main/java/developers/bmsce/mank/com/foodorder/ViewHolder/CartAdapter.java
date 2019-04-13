@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +21,12 @@ import java.util.List;
 import java.util.Locale;
 import java.util.zip.Inflater;
 
+import developers.bmsce.mank.com.foodorder.Common.Common;
 import developers.bmsce.mank.com.foodorder.Interface.ItemClickListener;
 import developers.bmsce.mank.com.foodorder.Model.Order;
 import developers.bmsce.mank.com.foodorder.R;
 
- class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+ class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnCreateContextMenuListener {
 
 public TextView text_cart_name,text_price;
 public ImageView img_cart_count;
@@ -42,13 +44,29 @@ private ItemClickListener itemClickListener;
         text_price = itemView.findViewById(R.id.cart_item_price);
         img_cart_count = itemView.findViewById(R.id.cart_item_count);
 
+        itemView.setOnCreateContextMenuListener(this);
+        itemView.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
 
     }
-}
+
+     @Override
+     public void onCreateContextMenu(ContextMenu contextMenu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+
+
+
+         contextMenu.setHeaderTitle("Select the Action");
+
+
+        // contextMenu.add(0, 0, getAdapterPosition(), Common.UPDATE);
+         contextMenu.add(0, 1, getAdapterPosition(), Common.DELETE);
+
+     }
+ }
 
 public class CartAdapter extends RecyclerView.Adapter<CartViewHolder>{
 

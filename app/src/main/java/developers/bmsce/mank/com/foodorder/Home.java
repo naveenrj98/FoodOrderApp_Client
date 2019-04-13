@@ -3,9 +3,9 @@ package developers.bmsce.mank.com.foodorder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,7 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +26,10 @@ import com.squareup.picasso.Picasso;
 import developers.bmsce.mank.com.foodorder.Common.Common;
 import developers.bmsce.mank.com.foodorder.Interface.ItemClickListener;
 import developers.bmsce.mank.com.foodorder.Model.Category;
+import developers.bmsce.mank.com.foodorder.Services.ListenOrder;
+
 import developers.bmsce.mank.com.foodorder.ViewHolder.MenuViewHolder;
+import io.paperdb.Paper;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,7 +50,7 @@ public class Home extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
+        Paper.init(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -91,6 +93,10 @@ public class Home extends AppCompatActivity
         recycler_menu.setLayoutManager(layoutManager);
 
         loadMenu();
+
+        Log.d("fs", "serviswe starts");
+        Intent intent = new Intent(Home.this, ListenOrder.class);
+        startService(intent);
 
     }
 
@@ -162,6 +168,8 @@ public class Home extends AppCompatActivity
              startActivity(intent);
 
         } else if (id == R.id.nav_signout) {
+
+             Paper.book().destroy();
 
              finish();
 

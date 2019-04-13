@@ -16,9 +16,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rey.material.widget.CheckBox;
+
 
 import developers.bmsce.mank.com.foodorder.Common.Common;
 import developers.bmsce.mank.com.foodorder.Model.User;
+import io.paperdb.Paper;
 
 import static android.support.constraint.Constraints.TAG;
 public class SigninActivity extends AppCompatActivity {
@@ -31,6 +34,7 @@ public class SigninActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
 
+    CheckBox ckbRemmeber;
 
 
     @Override
@@ -39,6 +43,9 @@ public class SigninActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
 
 
+        ckbRemmeber = (CheckBox)findViewById(R.id.ckbremember);
+
+        Paper.init(this);
 
         et_phone = findViewById(R.id.et_phone);
         et_password = findViewById(R.id.et_password);
@@ -51,6 +58,13 @@ public class SigninActivity extends AppCompatActivity {
         btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (ckbRemmeber.isChecked()) {
+
+                    Paper.book().write(Common.USER_KEY, et_phone.getText().toString());
+                    Paper.book().write((Common.PWD_KEY), et_password.getText().toString());
+
+                }
 
                 final ProgressDialog progressDialog = new ProgressDialog(SigninActivity.this);
                 progressDialog.setMessage("Please wait");
