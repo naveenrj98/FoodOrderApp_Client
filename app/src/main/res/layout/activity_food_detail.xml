@@ -63,6 +63,17 @@
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"
         app:useCompatPadding="true"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnrateing"
+        android:src="@drawable/ic_star_black_24dp"
+        android:backgroundTint="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:layout_anchor="@id/app_bar_layout"
+        app:layout_anchorGravity="bottom|right|start"
+        app:useCompatPadding="true"/>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedscrollview"
@@ -151,16 +162,31 @@
         app:cardUseCompatPadding="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/food_description"
-            android:layout_marginTop="12dp"
-            android:padding="12dp"
-            android:lineSpacingMultiplier="1.5"
-            android:text="Description"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <RatingBar
+                android:id="@+id/ratingbar"
+                android:rating="0"
+                android:isIndicator="true"
+                android:max="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/food_description"
+                android:layout_marginTop="12dp"
+                android:padding="12dp"
+                android:lineSpacingMultiplier="1.5"
+                android:text="Description"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            
+        </LinearLayout>
 
     </android.support.v7.widget.CardView>
 

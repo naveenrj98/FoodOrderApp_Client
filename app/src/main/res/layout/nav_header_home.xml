@@ -13,6 +13,30 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:backgroundTint="@color/overlayBackground">
 
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="Lakshmi Restauarant"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="Welcome"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+
+
 
     <TextView
         android:id="@+id/textFullName"
@@ -20,6 +44,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="RJ"
+        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 

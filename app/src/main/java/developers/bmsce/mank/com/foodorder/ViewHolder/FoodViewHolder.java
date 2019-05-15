@@ -13,7 +13,7 @@ import developers.bmsce.mank.com.foodorder.R;
     public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView foodname;
-        public ImageView foodimage;
+        public ImageView foodimage,fav_image;
 
         private ItemClickListener itemClickListener;
         public FoodViewHolder(View itemView) {
@@ -21,6 +21,7 @@ import developers.bmsce.mank.com.foodorder.R;
 
             foodname = itemView.findViewById(R.id.food_name);
             foodimage = itemView.findViewById(R.id.food_image);
+            fav_image = itemView.findViewById(R.id.fav);
 
             itemView.setOnClickListener(this);
         }

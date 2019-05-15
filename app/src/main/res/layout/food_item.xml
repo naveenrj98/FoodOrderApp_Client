@@ -19,16 +19,42 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/food_name"
-            android:text="Name of Food"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_width="match_parent"
-            android:textColor="@android:color/white"
-            android:background="@color/overlayBackground"
+
+        <LinearLayout
             android:layout_alignParentBottom="true"
-            android:layout_height="wrap_content" />
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/overlayBackground">
+
+
+            <TextView
+                android:id="@+id/food_name"
+                android:text="Name of Food"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_weight="9"
+                android:layout_width="0dp"
+                android:textColor="@android:color/white"
+
+
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/fav"
+              android:layout_marginRight="10dp"
+                android:background="@drawable/ic_favorite_border_black_24dp"
+                android:layout_weight="1"
+                android:tint="@android:color/white"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+
+
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

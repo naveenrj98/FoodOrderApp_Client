@@ -3,7 +3,7 @@ package developers.bmsce.mank.com.foodorder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -21,13 +21,14 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.squareup.picasso.Picasso;
 
 import developers.bmsce.mank.com.foodorder.Common.Common;
 import developers.bmsce.mank.com.foodorder.Interface.ItemClickListener;
 import developers.bmsce.mank.com.foodorder.Model.Category;
-import developers.bmsce.mank.com.foodorder.Services.ListenOrder;
 
+import developers.bmsce.mank.com.foodorder.Model.Token;
 import developers.bmsce.mank.com.foodorder.ViewHolder.MenuViewHolder;
 import io.paperdb.Paper;
 
@@ -89,14 +90,28 @@ public class Home extends AppCompatActivity
 
         recycler_menu = findViewById(R.id.recycler_menu);
         recycler_menu.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recycler_menu.setLayoutManager(layoutManager);
+//        layoutManager = new LinearLayoutManager(this);
+//        recycler_menu.setLayoutManager(layoutManager);
+
+        recycler_menu.setLayoutManager(new GridLayoutManager(this,2));
 
         loadMenu();
 
-        Log.d("fs", "serviswe starts");
-        Intent intent = new Intent(Home.this, ListenOrder.class);
-        startService(intent);
+        upadteoken(FirebaseInstanceId.getInstance().getToken());
+        
+
+//        Log.d("fs", "serviswe starts");
+//        Intent intent = new Intent(Home.this, ListenOrder.class);
+//        startService(intent);
+
+    }
+
+    private void upadteoken(String token) {
+
+        FirebaseDatabase db= FirebaseDatabase.getInstance();
+        DatabaseReference tokens= db.getReference("Tokens");
+        Token data=new Token(token,false);//client side
+        tokens.child(Common.currentUser.getPhone()).setValue(data);
 
     }
 

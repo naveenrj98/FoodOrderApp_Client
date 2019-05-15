@@ -8,40 +8,21 @@ public class Request {
     private String name;
     private String address;
     private String total;
+    private String comment;
     private List<Order> foods;
     private String status;
-
-
-    @Override
-    public String toString() {
-        return "Request{" +
-                "phone='" + phone + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", total='" + total + '\'' +
-                ", foods=" + foods +
-                '}';
-    }
-
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public Request() {
     }
 
-    public Request(String phone, String name, String address, String total, List<Order> foods) {
+    public Request(String phone, String name, String address, String total, String comment, List<Order> foods, String status) {
         this.phone = phone;
         this.name = name;
         this.address = address;
         this.total = total;
+        this.comment = comment;
         this.foods = foods;
-        this.status="0";  //Default is 0, 0:Placed, 1:Shipping 2"Shipped
+        this.status = status;
     }
 
     public String getPhone() {
@@ -76,6 +57,14 @@ public class Request {
         this.total = total;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     public List<Order> getFoods() {
         return foods;
     }
@@ -84,4 +73,24 @@ public class Request {
         this.foods = foods;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "phone='" + phone + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", total='" + total + '\'' +
+                ", comment='" + comment + '\'' +
+                ", foods=" + foods +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

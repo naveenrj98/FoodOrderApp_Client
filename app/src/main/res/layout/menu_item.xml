@@ -5,8 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    app:cardElevation="4dp">
+    android:layout_height="wrap_content"
+
+    app:cardElevation="10dp"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="0dp"
+
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,8 +30,8 @@
             android:textSize="20sp"
             android:layout_width="match_parent"
             android:textColor="@android:color/white"
-            android:background="@android:color/darker_gray"
-            android:layout_alignParentBottom="true"
+            android:background="@color/overlayBackground"
+            android:layout_centerInParent="true"
             android:layout_height="wrap_content" />
     </RelativeLayout>
 

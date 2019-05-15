@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "developers.bmsce.mank.com.foodorder"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -33,6 +33,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     /*------------FIREBASE-------------*/
+    implementation 'com.google.firebase:firebase-messaging:17.6.0'
     implementation 'com.google.firebase:firebase-auth:16.1.0'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
     implementation 'com.google.firebase:firebase-core:16.0.5'
@@ -55,6 +56,9 @@ dependencies {
 
     implementation 'io.paperdb:paperdb:2.1'
     implementation 'com.github.rey5137:material:1.2.4'
+    implementation 'com.stepstone.apprating:app-rating:2.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 
 
 }

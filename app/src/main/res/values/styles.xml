@@ -6,11 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+
+
+    </style>
 
     <style name="CollapsedAppBar" parent="@android:style/TextAppearance.Medium" >
 
@@ -28,6 +32,34 @@
         <item name="android:textStyle" >normal</item>
 
     </style>
+
+    <style name="raingDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert" >
+        
+        
+        <item name="android:background">@android:color/white</item>
+
+        <item name="android:buttonBarPositiveButtonStyle" >@style/ratingButtonDialogStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle" >@style/ratingButtonDialogStyle</item>
+        
+    </style>
+
+
+    <style name="ratingButtonDialogStyle" parent="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog" >
+
+        <item name="textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+
+
+    </style>
+    <style name="ratingDialogFadeAnim" >
+
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+
+
+    </style>
+
+
 
 
 </resources>

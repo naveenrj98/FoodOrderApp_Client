@@ -86,4 +86,37 @@ return result;
 
 
     }
+
+    //favorites
+
+    public void addToFavorites(String foodID) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("INSERT INTO Favorites(FoodId) VALUES('%s');",foodID);
+        db.execSQL(query);
+
+    }
+
+    public void removeFromFavorites(String foodID) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("DELETE FROM Favorites WHERE FoodId='%s';",foodID);
+        db.execSQL(query);
+
+    }
+
+    public boolean isFavorites(String foodID) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("SELECT * FROM Favorites WHERE FoodId='%s';",foodID);
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.getCount() < 0) {
+
+            cursor.close();
+            return false;
+        }
+       cursor.close();
+        return true;
+
+    }
 }

@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import developers.bmsce.mank.com.foodorder.Common.Common;
+import developers.bmsce.mank.com.foodorder.Database.Database;
 import developers.bmsce.mank.com.foodorder.Interface.ItemClickListener;
 import developers.bmsce.mank.com.foodorder.Model.Category;
 import developers.bmsce.mank.com.foodorder.Model.Food;
@@ -33,6 +34,10 @@ public class FoodList extends AppCompatActivity {
     String categoryId="";
     FirebaseRecyclerAdapter<Food,FoodViewHolder> adptor;
 
+    Database localdatabse;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +48,7 @@ public class FoodList extends AppCompatActivity {
         foodList = database.getReference("Foods");
 
 
-
-
+        localdatabse = new Database(this);
 
 
 
@@ -72,12 +76,41 @@ public class FoodList extends AppCompatActivity {
                 FoodViewHolder.class,
                 foodList.orderByChild("menuId").equalTo(categoryId)) {
             @Override
-            protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
+            protected void populateViewHolder(final FoodViewHolder viewHolder, final Food model, final int position) {
 
 
                 viewHolder.foodname.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.foodimage);
+
+                if (localdatabse.isFavorites(adptor.getRef(position).getKey())) {
+
+                    viewHolder.fav_image.setImageResource(R.drawable.ic_favorite_black_24dp);
+
+
+                }
+                viewHolder.fav_image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!localdatabse.isFavorites(adptor.getRef(position).getKey())) {
+
+
+                            localdatabse.addToFavorites(adptor.getRef(position).getKey());
+                            viewHolder.fav_image.setImageResource(R.drawable.ic_favorite_black_24dp);
+                            Toast.makeText(FoodList.this,""+model.getName()+"was Added to favorits",Toast.LENGTH_SHORT).show();
+
+                        }else {
+
+                            localdatabse.removeFromFavorites(adptor.getRef(position).getKey());
+                            viewHolder.fav_image.setImageResource(R.drawable.ic_favorite_black_24dp);
+                            Toast.makeText(FoodList.this,""+model.getName()+"was removed from favorites",Toast.LENGTH_SHORT).show();
+
+
+                        }
+
+
+                    }
+                });
                 final Food local = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override

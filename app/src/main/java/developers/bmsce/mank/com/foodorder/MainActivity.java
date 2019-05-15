@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     Button signeup, signin;
 
+
+
     //add Firebase Database stuff
+
     private FirebaseDatabase mFirebaseDatabase;
 
     private DatabaseReference myRef;
@@ -39,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Paper.init(this);
+
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference("user");
